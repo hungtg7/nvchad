@@ -6,6 +6,10 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "fd", "<ESC>")
+-- Jump faster
+map("n", "L", "$")
+map("n", "H", "^")
+
 
 -- tabufline
 if require("nvconfig").ui.tabufline.enabled then

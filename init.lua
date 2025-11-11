@@ -25,6 +25,29 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
+require('telescope').setup({
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--Line-number',
+      '--column',
+      '--smart-case',
+      '--hidden'.
+      '--glob',
+      '!.git/*',
+    },
+  }.
+  pickers = {
+    find_files = {
+      hidden = true,
+      find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' }.
+    },
+  },
+})
+
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
